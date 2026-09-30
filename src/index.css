@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f1f5f9; /* Slate-100 backdrop */
+    color: #0f172a;            /* Slate-900 high contrast */
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Smooth Running Text Marquee Animation for Hadits */
+@keyframes smooth-marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-running-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: smooth-marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.animate-running-text:hover {
+  animation-play-state: paused;
+}
+
+/* Cards & Containers High Contrast */
+.card-contrast {
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08);
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .page-a4 {
+    margin: 0;
+    padding: 15mm;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+  }
+}
