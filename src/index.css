@@ -4,26 +4,28 @@
 
 @layer base {
   body {
-    background-color: #f1f5f9; /* Slate-100 backdrop */
-    color: #0f172a;            /* Slate-900 high contrast */
+    background-color: #f8fafc; /* Crisp Slate-50 background */
+    color: #0f172a;            /* Deep Slate-900 typography */
     font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Custom Scrollbars */
+/* Custom Sleek Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #94a3b8;
+  background: #cbd5e1;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #94a3b8;
 }
 
 /* Smooth Running Text Marquee Animation for Hadits */
@@ -35,7 +37,7 @@
 .animate-running-text {
   display: inline-block;
   white-space: nowrap;
-  animation: smooth-marquee 25s linear infinite;
+  animation: smooth-marquee 28s linear infinite;
   will-change: transform;
 }
 
@@ -43,13 +45,20 @@
   animation-play-state: paused;
 }
 
-/* Cards & Containers High Contrast */
-.card-contrast {
+/* Glassmorphism & High-End Card Styling */
+.card-premium {
   background-color: #ffffff;
-  border: 2px solid #cbd5e1;
-  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  transition: all 0.2s ease-in-out;
 }
 
+.card-premium:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+}
+
+/* Custom Print A4 formatting */
 @media print {
   body {
     background: white !important;
