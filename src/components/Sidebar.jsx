@@ -14,7 +14,8 @@ import {
   Printer,
   Tv,
   LogOut,
-  BookMarked
+  BookMarked,
+  Sparkles
 } from 'lucide-react';
 
 export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
@@ -36,11 +37,11 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
   ];
 
   return (
-    <aside className="w-64 bg-[#0B0F19] text-white flex flex-col h-screen sticky top-0 border-r border-slate-800/80 z-30 select-none shadow-2xl">
+    <aside className="w-64 bg-[#080C14] text-white flex flex-col h-screen sticky top-0 border-r border-slate-800/80 z-30 select-none shadow-2xl">
       {/* Brand Header */}
-      <div className="p-4 border-b border-slate-800/80 bg-[#070A10] flex items-center justify-between">
+      <div className="p-4 border-b border-slate-800/80 bg-[#05080E] flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-emerald-950/40 ring-2 ring-emerald-500/30">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-emerald-950/50 ring-2 ring-emerald-500/30">
             SM
           </div>
           <div className="flex flex-col">
@@ -62,7 +63,7 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
           if (items.length === 0) return null;
           return (
             <div key={cat} className="space-y-1">
-              <div className="px-3 text-[10px] font-extrabold tracking-widest text-slate-500 uppercase">
+              <div className="px-3 text-[10px] font-extrabold tracking-widest text-slate-400 uppercase">
                 {cat}
               </div>
               {items.map((item) => {
@@ -74,7 +75,7 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
                     onClick={() => setActiveView(item.id)}
                     className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 group ${
                       isActive
-                        ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-950/40 ring-1 ring-emerald-400/40'
+                        ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-lg shadow-emerald-950/40 ring-1 ring-emerald-400/40 scale-[1.02]'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
@@ -94,11 +95,14 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
       </div>
 
       {/* Footer Profile */}
-      <div className="p-4 border-t border-slate-800/80 bg-[#070A10] space-y-3">
+      <div className="p-4 border-t border-slate-800/80 bg-[#05080E] space-y-3">
         <div className="flex items-center justify-between px-1">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 border border-emerald-400 flex items-center justify-center font-bold text-xs text-white shadow-sm">
-              AI
+            <div className="relative">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 border border-emerald-400 flex items-center justify-center font-bold text-xs text-white shadow-sm">
+                AI
+              </div>
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-slate-900"></span>
             </div>
             <div className="text-left">
               <p className="text-xs font-bold text-white leading-tight">Admin Insan Mandiri</p>
@@ -109,7 +113,7 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
 
         <button
           onClick={onOpenLogin}
-          className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-semibold border border-slate-800 transition-colors shadow-xs"
+          className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-semibold border border-slate-800 transition-all shadow-xs hover:border-slate-700"
         >
           <LogOut className="w-3.5 h-3.5 text-rose-400" />
           <span>Keluar</span>

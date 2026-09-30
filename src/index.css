@@ -4,8 +4,8 @@
 
 @layer base {
   body {
-    background-color: #f8fafc; /* Crisp Slate-50 background */
-    color: #0f172a;            /* Deep Slate-900 typography */
+    background-color: #f8fafc;
+    color: #0f172a;
     font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -28,6 +28,27 @@
   background: #94a3b8;
 }
 
+/* SaaS Card & Micro Interactions */
+.saas-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.saas-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
 /* Smooth Running Text Marquee Animation for Hadits */
 @keyframes smooth-marquee {
   0% { transform: translateX(100%); }
@@ -37,7 +58,7 @@
 .animate-running-text {
   display: inline-block;
   white-space: nowrap;
-  animation: smooth-marquee 28s linear infinite;
+  animation: smooth-marquee 32s linear infinite;
   will-change: transform;
 }
 
@@ -45,17 +66,12 @@
   animation-play-state: paused;
 }
 
-/* Glassmorphism & High-End Card Styling */
-.card-premium {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
-  transition: all 0.2s ease-in-out;
+/* Subtle Glow Effects */
+.glow-emerald {
+  box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.35);
 }
-
-.card-premium:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+.glow-amber {
+  box-shadow: 0 0 20px -5px rgba(245, 158, 11, 0.35);
 }
 
 /* Custom Print A4 formatting */
@@ -78,3 +94,4 @@
     width: 100% !important;
   }
 }
+
