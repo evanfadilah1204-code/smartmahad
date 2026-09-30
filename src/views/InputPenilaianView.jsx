@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ClipboardEdit,
   Save,
@@ -10,12 +10,20 @@ import {
 
 export default function InputPenilaianView({ santriList, setSantriList, parameters, setActiveView }) {
   const [selectedKelas, setSelectedKelas] = useState('Kelas 12');
-  const [selectedSantriId, setSelectedSantriId] = useState(santriList[0]?.id || '');
+  const [selectedSantriId, setSelectedSantriId] = useState('');
   const [jenisSesi, setJenisSesi] = useState('Posttest');
   const [tanggal, setTanggal] = useState('2026-09-30');
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [savedSantriNama, setSavedSantriNama] = useState('');
 
-  const activeSantri = santriList.find(s => s.id === Number(selectedSantriId));
+  // Auto select first santri if not selected or invalid
+  useEffect(() => {
+    if (santriList.length > 0 && (!selectedSantriId || !santriList.some(s => s.id === Number(selectedSantriId)))) {
+      setSelectedSantriId(santriList[0].id);
+    }
+  }, [santriList, selectedSantriId]);
+
+  const activeSantri = santriList.find(s => s.id === Number(selectedSantriId)) || santriList[0];
 
   const [scores, setScores] = useState({
     LRT1: 3,
@@ -33,6 +41,22 @@ export default function InputPenilaianView({ santriList, setSantriList, paramete
     LRT5: 'Catatan sikap dan adab harian musyrif'
   });
 
+  // Sync scores with activeSantri when activeSantri changes
+  useEffect(() => {
+    if (activeSantri) {
+      const currentScores = jenisSesi === 'Pretest' ? activeSantri.scoresPre : activeSantri.scoresPost;
+      if (currentScores) {
+        setScores({
+          LRT1: currentScores.LRT1 ?? 3,
+          LRT2: currentScores.LRT2 ?? 3,
+          LRT3: currentScores.LRT3 ?? 3,
+          LRT4: currentScores.LRT4 ?? 3,
+          LRT5: currentScores.LRT5 ?? 3
+        });
+      }
+    }
+  }, [selectedSantriId, jenisSesi]);
+
   const handleScoreChange = (kode, val) => {
     setScores(prev => ({ ...prev, [kode]: Number(val) }));
   };
@@ -43,15 +67,16 @@ export default function InputPenilaianView({ santriList, setSantriList, paramete
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!activeSantri) {
-      alert("Silakan tambah/pilih santri terlebih dahulu.");
+    const targetSantri = activeSantri;
+    if (!targetSantri) {
+      alert("Silakan pilih santri terlebih dahulu.");
       return;
     }
 
-    setSantriList(santriList.map(s => {
-      if (s.id === Number(selectedSantriId)) {
+    setSantriList(prevList => prevList.map(s => {
+      if (s.id === targetSantri.id) {
         const targetField = jenisSesi === 'Pretest' ? 'scoresPre' : 'scoresPost';
-        const updatedTarget = { ...s[targetField], ...scores };
+        const updatedTarget = { ...(s[targetField] || {}), ...scores };
 
         const avg = Object.values(updatedTarget).reduce((a, b) => a + b, 0) / 5;
         let newKlaster = 'Kuning';
@@ -65,7 +90,7 @@ export default function InputPenilaianView({ santriList, setSantriList, paramete
           newStatus = 'Butuh Intervensi';
         }
 
-        const preAvg = Object.values(s.scoresPre || { LRT1:2, LRT2:2, LRT3:2, LRT4:2, LRT5:2 }).reduce((a, b) => a + b, 0) / 5;
+        const preAvg = Object.values(s.scoresPre || { LRT1: 2, LRT2: 2, LRT3: 2, LRT4: 2, LRT5: 2 }).reduce((a, b) => a + b, 0) / 5;
         const postAvg = jenisSesi === 'Posttest' ? avg : (Object.values(s.scoresPost || {}).reduce((a, b) => a + b, 0) / 5 || avg);
         const nGainCalculated = Number(((postAvg - preAvg) / (4.0 - preAvg)).toFixed(3)) || 0.40;
 
@@ -81,8 +106,10 @@ export default function InputPenilaianView({ santriList, setSantriList, paramete
       return s;
     }));
 
+    setSavedSantriNama(targetSantri.nama);
     setSavedSuccess(true);
-    setTimeout(() => setSavedSuccess(false), 3000);
+    alert(`✅ Penilaian untuk ${targetSantri.nama} berhasil disimpan!`);
+    setTimeout(() => setSavedSuccess(false), 4000);
   };
 
   return (
@@ -100,9 +127,9 @@ export default function InputPenilaianView({ santriList, setSantriList, paramete
         </div>
 
         {savedSuccess && (
-          <div className="px-4 py-2 rounded-xl bg-emerald-100 border-2 border-emerald-400 text-emerald-950 text-xs font-extrabold flex items-center gap-2 shadow-sm">
+          <div className="px-4 py-2 rounded-xl bg-emerald-100 border-2 border-emerald-400 text-emerald-950 text-xs font-extrabold flex items-center gap-2 shadow-sm animate-bounce">
             <CheckCircle2 className="w-4 h-4 text-emerald-700" />
-            <span>Penilaian Berhasil Disimpan!</span>
+            <span>Penilaian {savedSantriNama} Berhasil Disimpan!</span>
           </div>
         )}
       </div>
@@ -153,7 +180,6 @@ export default function InputPenilaianView({ santriList, setSantriList, paramete
                   onChange={(e) => setSelectedSantriId(e.target.value)}
                   className="w-full px-3 py-2 bg-slate-50 border-2 border-slate-300 rounded-xl font-extrabold text-slate-950 focus:ring-2 focus:ring-emerald-600 focus:outline-none"
                 >
-                  <option value="">-- Pilih Santri --</option>
                   {santriList.map((s) => (
                     <option key={s.id} value={s.id}>
                       {s.nis} - {s.nama} ({s.kamar})
@@ -288,7 +314,7 @@ export default function InputPenilaianView({ santriList, setSantriList, paramete
 
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs shadow-md transition-all flex items-center gap-2"
+              className="px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
             >
               <Save className="w-4 h-4" />
               <span>Simpan Penilaian Santri</span>
