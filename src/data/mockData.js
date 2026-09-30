@@ -1,4 +1,4 @@
-// Centralized Master Data & Empty Initial State for SmartMahad 5.0
+// Centralized Master Data & Empty Initial State for SmartMahad
 
 // Santri starts EMPTY as requested by user
 export const INITIAL_SANTRI = [];

@@ -44,7 +44,7 @@ export default function DashboardView({ santriList, parameters, setActiveView, o
           </div>
           <div className="overflow-hidden relative w-full py-0.5">
             <div className="animate-running-text text-sm font-bold text-emerald-300 font-serif tracking-wide">
-              "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ" — Sebaik-baik kalian adalah orang yang mempelajari Al-Qur'an dan mengajarkannya (HR. Bukhari) &nbsp;&nbsp;•&nbsp;&nbsp; Pesantren Insan Mandiri — Mahad 5.0 Modern Islamic Boarding School.
+              "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ" — Sebaik-baik kalian adalah orang yang mempelajari Al-Qur'an dan mengajarkannya (HR. Bukhari) &nbsp;&nbsp;•&nbsp;&nbsp; Pesantren Insan Mandiri — Mahad Modern Islamic Boarding School.
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function DashboardView({ santriList, parameters, setActiveView, o
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1.5 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/60 text-emerald-300 text-xs font-bold border border-emerald-500/40">
-              <span>SmartMahad 5.0</span>
+              <span>SmartMahad</span>
             </div>
             <h1 className="text-2xl font-black text-white tracking-tight">
               Sistem Informasi & Manajemen Pesantren Insan Mandiri

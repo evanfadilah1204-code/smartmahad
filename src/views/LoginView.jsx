@@ -50,11 +50,8 @@ export default function LoginView({ onLoginSuccess, onClose }) {
             SM
           </div>
           <div>
-            <h1 className="text-xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
+            <h1 className="text-xl font-extrabold text-white tracking-tight text-center">
               SmartMahad
-              <span className="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                5.0
-              </span>
             </h1>
             <p className="text-xs text-slate-400 font-medium mt-1">
               Sistem Informasi & Manajemen Pesantren Insan Mandiri
@@ -116,7 +113,7 @@ export default function LoginView({ onLoginSuccess, onClose }) {
 
         <div className="pt-2 text-center text-[11px] text-slate-500 border-t border-slate-800/80 flex items-center justify-center gap-2">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-          <span>Sistem Informasi & Manajemen Pesantren v5.0 Insan Mandiri</span>
+          <span>Sistem Informasi & Manajemen Pesantren Insan Mandiri</span>
         </div>
       </div>
     </div>

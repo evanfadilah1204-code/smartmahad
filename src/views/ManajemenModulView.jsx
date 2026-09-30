@@ -78,7 +78,7 @@ export default function ManajemenModulView({ parameters, setParameters }) {
               🐾 Ring Time (5 Binatang) & Kemandirian & Karakter Santri
             </option>
             <option value="Shalat Khusyuk & Kepemimpinan">
-              🕌 Shalat Khusyuk & Kepemimpinan Mahad 5.0
+              🕌 Shalat Khusyuk & Kepemimpinan Mahad
             </option>
           </select>
         </div>

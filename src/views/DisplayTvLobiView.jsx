@@ -44,7 +44,7 @@ export default function DisplayTvLobiView({ santriList, onClose }) {
           </div>
           <div>
             <h1 className="text-2xl font-black tracking-tight text-white flex items-center gap-3">
-              SmartMahad - Insan Mandiri 5.0
+              SmartMahad - Insan Mandiri
               <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold uppercase tracking-wider">
                 Display Layar TV Lobi
               </span>
@@ -148,7 +148,7 @@ export default function DisplayTvLobiView({ santriList, onClose }) {
           </div>
           <div className="overflow-hidden relative w-full py-0.5">
             <div className="animate-running-text text-lg font-bold text-emerald-300 font-serif tracking-wide">
-              "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ" — Sebaik-baik kalian adalah orang yang mempelajari Al-Qur'an dan mengajarkannya (HR. Bukhari) &nbsp;&nbsp;•&nbsp;&nbsp; Pesantren Insan Mandiri — Mahad 5.0 Modern Islamic Boarding School.
+              "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ" — Sebaik-baik kalian adalah orang yang mempelajari Al-Qur'an dan mengajarkannya (HR. Bukhari) &nbsp;&nbsp;•&nbsp;&nbsp; Pesantren Insan Mandiri — Mahad Modern Islamic Boarding School.
             </div>
           </div>
         </div>

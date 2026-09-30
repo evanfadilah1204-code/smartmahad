@@ -64,7 +64,7 @@ export default function RaporCetakView({ santriList, parameters }) {
                 PESANTREN INSAN MANDIRI
               </h1>
               <h2 className="text-xs font-bold text-slate-700 tracking-tight">
-                SISTEM INFORMASI & MANAJEMEN PESANTREN / MA'HAD 5.0
+                SISTEM INFORMASI & MANAJEMEN PESANTREN / MA'HAD
               </h2>
               <p className="text-[10px] text-slate-500">
                 Jl. Raya Insan Mandiri No. 50, Kompleks Islamic Education Center | Telp: (021) 8890-1234

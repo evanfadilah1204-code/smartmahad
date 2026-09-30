@@ -30,7 +30,7 @@ export default function AuditTrailView({ auditLogs }) {
             <h2 className="text-lg text-slate-800">System Audit Trail & Log Keamanan Data</h2>
           </div>
           <p className="text-xs text-slate-500">
-            Pencatatan real-time seluruh mutasi data (INSERT, UPDATE, DELETE) pada sistem SmartMahad 5.0.
+            Pencatatan real-time seluruh mutasi data (INSERT, UPDATE, DELETE) pada sistem SmartMahad.
           </p>
         </div>
 

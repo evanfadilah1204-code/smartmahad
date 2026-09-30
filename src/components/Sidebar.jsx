@@ -45,8 +45,8 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
             SM
           </div>
           <div>
-            <h1 className="font-extrabold text-white text-sm tracking-tight leading-tight flex items-center gap-1.5">
-              SmartMahad <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">5.0</span>
+            <h1 className="font-extrabold text-white text-sm tracking-tight leading-tight">
+              SmartMahad
             </h1>
             <p className="text-[11px] text-slate-300 font-semibold">Insan Mandiri Pesantren</p>
           </div>
@@ -111,7 +111,7 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
             </div>
             <div className="text-left">
               <p className="text-xs font-bold text-white">Musyrif Utama</p>
-              <p className="text-[10px] text-slate-400 font-medium">Admin Pesantren 5.0</p>
+              <p className="text-[10px] text-slate-400 font-medium">Admin Pesantren</p>
             </div>
           </div>
         </div>

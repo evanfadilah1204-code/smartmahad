@@ -56,7 +56,7 @@ export default function Header({ activeView, setActiveView, santriCount, onLoadS
             {getTitle()}
           </h2>
           <p className="text-xs text-slate-600 font-semibold hidden sm:block">
-            Sistem Informasi & Manajemen Pesantren Insan Mandiri 5.0
+            Sistem Informasi & Manajemen Pesantren Insan Mandiri
           </p>
         </div>
 
