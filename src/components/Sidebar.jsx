@@ -13,8 +13,7 @@ import {
   Download,
   Printer,
   Tv,
-  LogIn,
-  ChevronRight,
+  LogOut,
   BookMarked
 } from 'lucide-react';
 
@@ -38,17 +37,20 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
 
   return (
     <aside className="w-64 bg-[#090D16] text-white flex flex-col h-screen sticky top-0 border-r border-slate-800 z-30 select-none shadow-2xl">
-      {/* Brand Header */}
-      <div className="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/80">
-        <div className="flex items-center gap-3">
+      {/* Brand Header matching screenshot */}
+      <div className="p-4 border-b border-slate-800 bg-slate-950 flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-black text-base shadow-lg ring-2 ring-emerald-500/30">
             SM
           </div>
-          <div>
-            <h1 className="font-extrabold text-white text-sm tracking-tight leading-tight">
-              SmartMahad
-            </h1>
-            <p className="text-[11px] text-slate-300 font-semibold">Insan Mandiri Pesantren</p>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5">
+              <span className="font-black text-white text-base tracking-tight">SmartMahad</span>
+              <span className="bg-amber-500 text-amber-950 font-black px-1.5 py-0.5 rounded text-[9px] uppercase tracking-wider shadow-xs leading-none">
+                INSAN MANDIRI
+              </span>
+            </div>
+            <p className="text-[10px] text-slate-400 font-semibold">Sistem Informasi Pesantren</p>
           </div>
         </div>
       </div>
@@ -91,30 +93,25 @@ export default function Sidebar({ activeView, setActiveView, onOpenLogin }) {
         })}
       </div>
 
-      {/* Footer Profile */}
-      <div className="p-3 border-t border-slate-800 bg-slate-950 space-y-2">
-        <button
-          onClick={onOpenLogin}
-          className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700/80 transition-colors"
-        >
-          <div className="flex items-center gap-2">
-            <LogIn className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="font-mono text-[11px]">login.html</span>
+      {/* Footer Profile matching screenshot */}
+      <div className="p-4 border-t border-slate-800 bg-slate-950 space-y-3">
+        <div className="flex items-center gap-2.5 px-1">
+          <div className="w-8 h-8 rounded-full bg-emerald-600 border border-emerald-400 flex items-center justify-center font-bold text-xs text-white">
+            AI
           </div>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-        </button>
-
-        <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-900 border border-slate-800">
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-full bg-emerald-600 border border-emerald-400 flex items-center justify-center font-bold text-[11px] text-white">
-              MU
-            </div>
-            <div className="text-left">
-              <p className="text-xs font-bold text-white">Musyrif Utama</p>
-              <p className="text-[10px] text-slate-400 font-medium">Admin Pesantren</p>
-            </div>
+          <div className="text-left">
+            <p className="text-xs font-black text-white leading-tight">Admin Insan Mandiri</p>
+            <p className="text-[10px] text-slate-400 font-semibold">Musyrif Utama</p>
           </div>
         </div>
+
+        <button
+          onClick={onOpenLogin}
+          className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-bold border border-slate-800 transition-colors shadow-xs"
+        >
+          <LogOut className="w-3.5 h-3.5 text-rose-400" />
+          <span>Keluar</span>
+        </button>
       </div>
     </aside>
   );
